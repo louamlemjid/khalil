@@ -1,0 +1,53 @@
+/* Custom Bootstrap Theme */
+$primary: #4CAF50;
+$secondary: #424242;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+/* Import Bootstrap */
+@import "bootstrap/scss/bootstrap";
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --bs-body-bg: #212529;
+  --bs-body-color: #f8f9fa;
+  --bs-card-bg: #2c3034;
+  --bs-border-color: #495057;
+  --bs-table-color: #f8f9fa;
+  --bs-table-bg: #2c3034;
+  --bs-table-border-color: #495057;
+  --bs-modal-bg: #2c3034;
+  --bs-modal-color: #f8f9fa;
+}
+
+/* Custom utilities */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
