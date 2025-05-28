@@ -1,5 +1,5 @@
 import {supabase} from '@/lib/db';
-import { Stock,Product } from '@/lib/types';
+import { Stock } from '@/lib/types';
 
 export class StockService {
     static async getAllStocks(): Promise<Stock[]> {
@@ -72,6 +72,25 @@ export class StockService {
             }
         } catch (error) {
             console.error('Error in deleteStock:', error);
+            throw error;
+        }
+    }
+    static async getStockByProductId(productId: string): Promise<Stock | null> {
+        try {
+            const { data, error } = await supabase
+                .from('stock')
+                .select('*')
+                .eq('product_id', productId)
+                .single();
+
+            if (error) {
+                console.error(`Error fetching stock for product ${productId}:`, error);
+                throw new Error('Failed to fetch stock');
+            }
+
+            return data as Stock | null;
+        } catch (error) {
+            console.error(`Error in getStockByProductId for product ${productId}:`, error);
             throw error;
         }
     }

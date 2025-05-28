@@ -112,7 +112,7 @@ export class ProductService {
         }
     }
 
-    async getProductById(id: string): Promise<Product | null> {
+    static async getProductById(id: string): Promise<Product | null> {
         try {
             const { data, error } = await supabase
                 .from('produit')

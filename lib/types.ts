@@ -47,4 +47,26 @@ export interface Stock {
   produit?: Product;
 }
 
+export interface Vente {
+  id: string;
+  client_id: string;
+  utilisateur_id: string;
+  date: string;
+  remise: number;
+  total: number;
+  status : 'pending' | 'completed' | 'cancelled';
+  paiment_id: string;
+}
+
+export interface Paiment {
+  id: string;
+  vente_id: string;
+  montant: number;
+  mantant_client: number;
+  type: 'cash' | 'card' | 'mobile_money';
+  date: string;
+  status: 'pending' | 'completed' | 'failed';
+  
+}
+
 export type ProductCategory = 'coffee' | 'jus' | 'pizzas' | 'pastries' | 'sandwiches' | 'desserts' | 'drinks' | 'snacks';
