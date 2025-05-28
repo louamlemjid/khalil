@@ -61,7 +61,7 @@ function CaissePageContent() {
           ref={scrollContainerRef}
           className="flex flex-nowrap overflow-x-auto custom-scrollbar-horizontal py-2 gap-4 snap-x snap-mandatory scroll-p-4"
         >
-          {categories.map((category) => (
+          {categories && categories.length > 0 && categories.map((category) => (
             <Link
               href={`/dashboard/caisse/${category.slug}`}
               key={category.slug}
